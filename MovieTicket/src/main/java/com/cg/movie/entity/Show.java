@@ -17,11 +17,11 @@ import javax.persistence.Table;
 @Table(name="lpu_movie_show")
 public class Show {
 	@Id
-	@Column(name="show_id",length=6)
+	@Column(name="show_id")
 	private int showId;
 	@Column(name="show_name", length=25)
 	private String showName;
-	@Column(name="seats",length=3)
+	@Column(name="seats")
 	private int seats;
 	@Column(name="screen_name", length=25)
 	private String screenName;
@@ -30,11 +30,10 @@ public class Show {
 	@Column(name="show_end_time")
 	private LocalDateTime showendTime;
 	
-	/*
-	 * @ManyToOne
-	 * 
-	 * @JoinColumn(name="movie_id") private Movie movie;
-	 */
+	@ManyToOne
+	@JoinColumn(name="movie_id")
+	private Movie movie;
+	
 	@ManyToOne
 	@JoinColumn(name="theaterId", referencedColumnName = "theaterId")
 	private Theater theater;
@@ -96,9 +95,6 @@ public class Show {
 		this.screenName = screenName;
 		this.showstartTime = showstartTime;
 		this.showendTime = showendTime;
-	}
-	public Show() {
-		
 	}
 
 }

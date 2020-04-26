@@ -17,13 +17,13 @@ import org.hibernate.annotations.DynamicUpdate;
 
 public class Admin {
 	@Id
-	@Column(name="user_id",length=10)
+	@Column(name="user_id")
 	private int userId;
-	@Column(name="admin_name",length=15)
+	@Column(name="admin_name")
 	private String adminName;
-	@Column(name="password",length=10)
+	@Column(name="password")
 	private String password;
-	@Column(name="admin_Contact",length=10)
+	@Column(name="admin_Contact")
 	private String adminContact;
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="user_id")

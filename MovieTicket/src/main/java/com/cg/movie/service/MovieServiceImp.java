@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.movie.dao.MovieDao;
-import com.cg.movie.exception.MovieException;
 import com.cg.movie.entity.Movie;
 
 
@@ -19,17 +18,9 @@ public class MovieServiceImp implements MovieService{
 	@Autowired
 	MovieDao moviedao;
 	
-	/********************************************************************************************************************
-	*       @author           javvadi Sai Krishna
-	*       Description       It is a service that provides service for manipulating movie details
-	*       version           1.0
-	*       created date      21-APR-2020
-	********************************************************************************************************************/
-	
-	
 	@Override
-	public void addmovie(Movie movie) {
-		boolean b=moviedao.addmovie(movie);
+	public void create(Movie movie) {
+		boolean b=moviedao.create(movie);
 		if(b==true)
 		{
 			System.out.println("Added SucessFully");
@@ -54,8 +45,8 @@ public class MovieServiceImp implements MovieService{
 	}
 
 	@Override
-	public Boolean deletemovie(int id) {
-		moviedao.deletemovie(id);
+	public Boolean delete(int id) {
+		moviedao.delete(id);
 		return null;
 		
 	}

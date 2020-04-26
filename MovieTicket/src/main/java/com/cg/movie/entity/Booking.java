@@ -2,8 +2,6 @@ package com.cg.movie.entity;
 
 
 
-import java.time.LocalDate;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -14,21 +12,19 @@ import javax.persistence.Table;
 @Table(name="lpu_movie_booking")
 public class Booking {
 	@Id
-	@Column(name="booking_id",length=6)
+	@Column(name="booking_id")
 	private int bookingid;
-	@Column(name="no_of_seats",length=3)
+	@Column(name="no_of_seats")
 	private int noOfSeats;
-	@Column(name="booking_date")
-	private LocalDate bookingDate;
-	@Column(name="total_cost",length=7)
+	@Column(name="total_cost")
 	private double totalCost;
-	@Column(name="user_name",length=10)
+	@Column(name="user_name")
 	private String userName;
-	@Column(name="contact",length=10)
+	@Column(name="contact")
 	private String contact;
 	@ManyToOne
-	@JoinColumn(name="seat_Id", referencedColumnName = "seat_id")
-	private Seat seat;
+	@JoinColumn(name="show_id", referencedColumnName = "show_id")
+	private Show show;
 	
 
 }

@@ -1,46 +1,40 @@
 package com.cg.movie.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
+
 
 @Entity
 @Table(name="lpu_movie_theater")
-public class Theater {
+public class Theater{
 	@Id
-	@Column(name="theaterId")
+	@Column(name="theaterId",length=6)
 	private int theaterId;
-	@Column(name="theaterName")
+	@Column(name="theaterName",length=25)
 	private String theaterName;
-	@Column(name="theater_city")
-	private String city;
-	@Column(name="managerName")
+	@Column(name="theaterCity",length=25)
+	private String theaterCity;
+	@Column(name ="managerName",length=25)
 	private String managerName;
-	@Column(name="managerContact")
+	@Column(name ="managerContact",length=10)
 	private int managerContact;
+	@ManyToOne
+	@JoinColumn(name="movieId", referencedColumnName = "movie_Id")
+	private Movie movie;
 	
-	public int getTheaterId() {
-		return theaterId;
+	
+	public String getTheaterCity() {
+		return theaterCity;
 	}
-	public void setTheaterId(int theaterId) {
-		this.theaterId = theaterId;
-	}
-	public String getTheaterName() {
-		return theaterName;
-	}
-	public void setTheaterName(String theaterName) {
-		this.theaterName = theaterName;
-	}
-	public String getCity() {
-		return city;
-	}
-	public void setCity(String city) {
-		this.city = city;
+	public void setTheaterCity(String theaterCity) {
+		this.theaterCity = theaterCity;
 	}
 	public String getManagerName() {
 		return managerName;
@@ -54,16 +48,19 @@ public class Theater {
 	public void setManagerContact(int managerContact) {
 		this.managerContact = managerContact;
 	}
-	
-	public Theater(int theaterId,String theaterName,String city,String managerName,int managerContact )
-	{
-			this.theaterId=theaterId;
-			this.theaterName=theaterName;
-			this.city=city;
-			this.managerName=managerName;
-			this.managerContact=managerContact;
+	public int getTheaterId() {
+		return theaterId;
 	}
-
+	public void setTheaterId(int theaterId) {
+		this.theaterId = theaterId;
+	}
+	public String getTheaterName() {
+		return theaterName;
+	}
+	public void setTheaterName(String theaterName) {
+		this.theaterName = theaterName;
+	}
 	
-
+	
+	
 }

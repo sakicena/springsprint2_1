@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cg.movie.entity.Movie;
 import com.cg.movie.exception.MovieException;
 import com.cg.movie.service.MovieService;
-//import com.cg.springbootjpa.model.Users;
 
 
 
@@ -36,11 +35,10 @@ public class MovieController {
 	@PostMapping("/movie")
 	public ResponseEntity<String> saveBook(@RequestBody Movie tr) {
 		if(tr.getMovieName().contentEquals("null")) throw new MovieException("Empty Name not allowed");
-        movieservice.addmovie(tr);
+        movieservice.create(tr);
         
-		return new ResponseEntity<String>("Movie Added",HttpStatus.OK);
+		return new ResponseEntity<String>("Trainer Added",HttpStatus.OK);
 	}
-	
 	@GetMapping("/getmovies")
     public ResponseEntity<List<Movie>> getmovielist() {
 			List<Movie> list = movieservice.reterive();
@@ -50,7 +48,7 @@ public class MovieController {
 	public ResponseEntity<Boolean> deleteMovie(@PathVariable("id") int id)
 	{
 		
-		Boolean status = movieservice.deletemovie(id);
+		Boolean status = movieservice.delete(id);
 		if(!status)throw new MovieException("Movie not found.");
 		
 		return new ResponseEntity<Boolean>(status, HttpStatus.OK);

@@ -13,9 +13,9 @@ import org.hibernate.annotations.DynamicUpdate;
 @Table(name="lpu_movie_user")
 public class user {
 	@Id
-	@Column(name="user_id",length=10)
+	@Column(name="user_id")
 	private int userId;
-	@Column(name="password",length=10)
+	@Column(name="password")
 	private String password;
 	public int getUserId() {
 		return userId;

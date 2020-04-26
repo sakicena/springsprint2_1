@@ -16,13 +16,13 @@ import org.hibernate.annotations.DynamicUpdate;
 @Table(name="lpu_movie_Ticket")
 public class Ticket {
 @Id
-@Column(name="ticket_id",length=10)
+@Column(name="ticket_id")
 private int ticketId;
-@Column(name="noofseats",length=3)
+@Column(name="noofseats")
 private int noOfSeats;
-@Column(name="seatName",length=3)
+@Column(name="seatName")
 private String seatName;
-@Column(name="Screenname",length=10)
+@Column(name="Screenname")
 private String screenname;
 @ManyToOne
 @JoinColumn(name="booking_id")

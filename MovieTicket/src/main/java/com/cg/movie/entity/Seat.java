@@ -21,12 +21,12 @@ public class Seat {
 	//public enum seatStatusEnum{Available,Blocked};
 
 @Id
-@Column(name="seat_id",length=6)
+@Column(name="seat_id")
 private int seatId;
 @Enumerated(EnumType.STRING)
 private BookingState seatStatus;
 //private Enum seatStatus;
-@Column(name="seat_Price",length=4)
+@Column(name="seat_Price")
 private double seatPrice;
 @OneToOne
 @JoinColumn(name="show_id", referencedColumnName = "show_id")

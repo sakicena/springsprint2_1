@@ -1,7 +1,5 @@
 package com.cg.movie.entity;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -17,7 +15,7 @@ import org.hibernate.annotations.DynamicUpdate;
 public class Movie {
 	
 	@Id
-	@Column(name="movie_id" ,length=6)
+	@Column(name="movie_id")
 	private int movieId;
 	@Column(name="movie_name", length=25)
 	private String movieName;
@@ -27,7 +25,8 @@ public class Movie {
 	private String director;
 	@Column(name="genre", length=25)
 	private String genre;
-	
+	@ManyToOne
+	@JoinColumn(name="Theater_id", referencedColumnName = "theater_id")
 
 	public int getMovieId() {
 		return movieId;
@@ -59,7 +58,6 @@ public class Movie {
 	public void setGenre(String genre) {
 		this.genre = genre;
 	}
-	
 	
 	
 	
